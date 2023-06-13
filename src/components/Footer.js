@@ -84,22 +84,22 @@ const Footer = () => {
             <h2 className="text-lg font-bold mb-4">Social</h2>
             <ul>
               <li>
-                <a href="https://dummy-link">Twitter</a>
+                <a href="https://twitter.com">Twitter</a>
               </li>
               <li>
-                <a href="https://dummy-link">LinkedIn</a>
+                <a href="https://linkedin.com">LinkedIn</a>
               </li>
               <li>
-                <a href="https://dummy-link">Facebook</a>
+                <a href="https://facebook.com">Facebook</a>
               </li>
               <li>
-                <a href="https://dummy-link">GitHub</a>
+                <a href="https://github.com">GitHub</a>
               </li>
               <li>
-                <a href="https://dummy-link">AngelList</a>
+                <a href="https://www.angellist.com/">AngelList</a>
               </li>
               <li>
-                <a href="https://dummy-link">Dribbble</a>
+                <a href="https://dribbble.com/">Dribbble</a>
               </li>
             </ul>
           </div>
@@ -138,37 +138,37 @@ const Footer = () => {
           </div>
           <div className="flex justify-center md:justify-start space-x-4 mb-3 md:mb-0">
             <a
-              href="https://dummy-link"
+              href="https://twitter.com"
               className="text-gray-400 hover:text-white"
             >
               <FaTwitter />
             </a>
             <a
-              href="https://dummy-link"
+              href="https://linkedin.com"
               className="text-gray-400 hover:text-white"
             >
               <FaLinkedin />
             </a>
             <a
-              href="https://dummy-link"
+              href="https://facebook.com"
               className="text-gray-400 hover:text-white"
             >
               <FaFacebook />
             </a>
             <a
-              href="https://dummy-link"
+              href="https://github.com"
               className="text-gray-400 hover:text-white"
             >
               <FaGithub />
             </a>
             <a
-              href="https://dummy-link"
+              href="https://www.angellist.com/"
               className="text-gray-400 hover:text-white"
             >
               <FaAngellist />
             </a>
             <a
-              href="https://dummy-link"
+              href="https://dribbble.com/"
               className="text-gray-400 hover:text-white"
             >
               <FaDribbble />
