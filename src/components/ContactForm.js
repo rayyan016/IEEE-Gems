@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+import { ToastContainer ,toast, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -29,6 +32,7 @@ const ContactForm = () => {
         services: updatedServices,
       }));
     } else {
+      // Handle other input types (text, email, etc.)
       setFormData((prevState) => ({
         ...prevState,
         [name]: value,
@@ -38,6 +42,7 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     // API call
     // Create a URL-encoded string from the form data
 
@@ -50,6 +55,7 @@ const ContactForm = () => {
       services: JSON.stringify(formData.services),
     };
 
+    // Convert the request payload to URL-encoded format
     const urlEncodedData = Object.keys(requestPayload)
       .map(
         (key) =>
@@ -59,7 +65,6 @@ const ContactForm = () => {
       )
       .join("&");
 
-    console.log(urlEncodedData);
     // Send the form data to the API
     fetch("http://formz.in/api/task", {
       method: "POST",
@@ -69,11 +74,14 @@ const ContactForm = () => {
       body: urlEncodedData,
     })
       .then((response) => {
-        console.log(response.status);
+        // Successful hit
         if (response.status === 201) {
           console.log("Form submitted successfully");
+          toast.success("Form submitted successfully");
         } else if (response.status === 400) {
+          // Unsuccessful hit
           console.log("Error submitting the form");
+          toast.error("Error submitting the form");
         }
       })
       .catch((error) => {
@@ -210,6 +218,7 @@ const ContactForm = () => {
           Send Message
         </button>
       </form>
+      <ToastContainer transition={Slide} />
     </div>
   );
 };
