@@ -132,7 +132,7 @@ const Footer = () => {
         <div className="flex flex-col-reverse md:flex-row items-center justify-between mt-8">
           <div className="text-sm lg:text-lg">
             <p>
-              &copy; {new Date().getFullYear()} Untitled UI. All rights
+              &copy; {new Date().getFullYear()} Phoenix UI. All rights
               reserved.
             </p>
           </div>
