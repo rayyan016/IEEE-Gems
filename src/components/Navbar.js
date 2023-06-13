@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { FiMenu } from "react-icons/fi";
+import { AiOutlineDown } from "react-icons/ai";
+import logo from "../logo.jpg";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
-  const handleProductsMouseEnter = () => {
-    setIsProductsOpen(true);
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleProductsMouseLeave = () => {
-    setIsProductsOpen(false);
+  const handleProductsToggle = () => {
+    setIsProductsOpen(!isProductsOpen);
   };
 
-  const handleResourcesMouseEnter = () => {
-    setIsResourcesOpen(true);
-  };
-
-  const handleResourcesMouseLeave = () => {
-    setIsResourcesOpen(false);
+  const handleResourcesToggle = () => {
+    setIsResourcesOpen(!isResourcesOpen);
   };
 
   return (
@@ -28,19 +28,31 @@ const Navbar = () => {
             {/* Company Logo and Name */}
             <img
               className="block lg:hidden h-8 w-auto"
-              src="logo.png"
+              src={logo}
               alt="Logo"
+              aria-label="Logo"
             />
             <img
               className="hidden lg:block h-8 w-auto"
-              src="logo.png"
+              src={logo}
               alt="Logo"
+              aria-label="Logo"
             />
-            <span className="text-white font-bold ml-2">Company Name</span>
+            <span className="text-white font-bold ml-2">Untitled UI</span>
           </div>
+          {/* Hamburger Menu */}
+          <div className="flex items-center sm:hidden">
+            <button
+              onClick={handleMenuToggle}
+              type="button"
+              className="text-gray-300 hover:text-white focus:outline-none"
+            >
+              <FiMenu className="h-6 w-6" />
+            </button>
+          </div>
+          {/* Navigation Links */}
           <div className="hidden sm:block">
-            <div className="flex space-x-4">
-              {/* Navigation Links */}
+            <div className="flex space-x-2 py-2 mt-1">
               <a
                 href="https://google.com"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -49,61 +61,60 @@ const Navbar = () => {
               </a>
               <div
                 className="relative"
-                onMouseEnter={handleProductsMouseEnter}
-                onMouseLeave={handleProductsMouseLeave}
+                onMouseEnter={handleProductsToggle}
+                onMouseLeave={handleProductsToggle}
               >
-                {/* Products Dropdown */}
                 <button
                   type="button"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-5 py-2 rounded-md text-sm font-medium focus:outline-none flex items-center"
                 >
-                  Products
+                  Products <AiOutlineDown className="ml-1.5 mt-1" />
                 </button>
                 {isProductsOpen && (
-                  <div
-                    className="absolute z-10 bg-gray-900 text-white py-2 mt-2 rounded-md shadow-lg"
-                    onMouseEnter={handleProductsMouseEnter}
-                    onMouseLeave={handleProductsMouseLeave}
-                  >
-                    {/* Dropdown Content */}
-                    <a href="https://google.com" className="block px-4 py-2 text-sm">
+                  <div className="absolute z-10 bg-gray-900 text-white py-2 rounded-md shadow-lg">
+                    <a
+                      href="https://google.com"
+                      className="block px-4 py-2 text-sm"
+                    >
                       Product 1
                     </a>
-                    <a href="https://google.com" className="block px-4 py-2 text-sm">
+                    <a
+                      href="https://google.com"
+                      className="block px-4 py-2 text-sm"
+                    >
                       Product 2
                     </a>
                   </div>
                 )}
               </div>
-              {/* Resources Link */}
               <div
-                className="relative p-5"
-                onMouseEnter={handleResourcesMouseEnter}
-                onMouseLeave={handleResourcesMouseLeave}
+                className="relative"
+                onMouseEnter={handleResourcesToggle}
+                onMouseLeave={handleResourcesToggle}
               >
                 <button
                   type="button"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:outline-none flex items-center"
                 >
-                  Resources
+                  Resources <AiOutlineDown className="ml-1.5 mt-1" />
                 </button>
                 {isResourcesOpen && (
-                  <div
-                    className="absolute z-10 bg-gray-900 text-white py-2 mt-2 rounded-md shadow-lg"
-                    onMouseEnter={handleResourcesMouseEnter}
-                    onMouseLeave={handleResourcesMouseLeave}
-                  >
-                    {/* Dropdown Content */}
-                    <a href="https://google.com" className="block px-4 py-2 text-sm">
+                  <div className="absolute z-10 bg-gray-900 text-white py-2 rounded-md shadow-lg">
+                    <a
+                      href="https://google.com"
+                      className="block px-4 py-2 text-sm"
+                    >
                       Resource 1
                     </a>
-                    <a href="https://google.com" className="block px-4 py-2 text-sm">
+                    <a
+                      href="https://google.com"
+                      className="block px-4 py-2 text-sm"
+                    >
                       Resource 2
                     </a>
                   </div>
                 )}
               </div>
-              {/* Pricing Link */}
               <a
                 href="https://google.com"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -113,6 +124,82 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+
+        {/* Hamburger Menu Content */}
+        {isMenuOpen && (
+          <div className="sm:hidden bg-gray-900">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              <a
+                href="https://google.com"
+                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              >
+                Home
+              </a>
+              <div
+                className="relative"
+                onMouseEnter={handleProductsToggle}
+                onMouseLeave={handleProductsToggle}
+              >
+                <button
+                  type="button"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white w-full text-left px-3 py-2 rounded-md text-base font-medium focus:outline-none flex justify-center"
+                >
+                  Products
+                </button>
+                {isProductsOpen && (
+                  <div className="absolute z-10 bg-gray-900 text-white py-2 mt-1 ml-3 rounded-md shadow-lg">
+                    <a
+                      href="https://google.com"
+                      className="block px-4 py-2 text-base"
+                    >
+                      Product 1
+                    </a>
+                    <a
+                      href="https://google.com"
+                      className="block px-4 py-2 text-base"
+                    >
+                      Product 2
+                    </a>
+                  </div>
+                )}
+              </div>
+              <div
+                className="relative"
+                onMouseEnter={handleResourcesToggle}
+                onMouseLeave={handleResourcesToggle}
+              >
+                <button
+                  type="button"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white w-full text-left px-3 py-2 rounded-md text-base font-medium focus:outline-none flex justify-center"
+                >
+                  Resources
+                </button>
+                {isResourcesOpen && (
+                  <div className="absolute z-10 bg-gray-900 text-white py-2 mt-1 ml-3 rounded-md shadow-lg">
+                    <a
+                      href="https://google.com"
+                      className="block px-4 py-2 text-base"
+                    >
+                      Resource 1
+                    </a>
+                    <a
+                      href="https://google.com"
+                      className="block px-4 py-2 text-base"
+                    >
+                      Resource 2
+                    </a>
+                  </div>
+                )}
+              </div>
+              <a
+                href="https://google.com"
+                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              >
+                Pricing
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
