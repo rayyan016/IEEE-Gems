@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    description: '',
+    name: "",
+    email: "",
+    phone: "",
+    description: "",
     services: [],
   });
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    if (type === 'checkbox') {
+    if (type === "checkbox") {
       // Handle checkbox inputs separately
       const updatedServices = [...formData.services];
       if (checked) {
@@ -39,6 +39,48 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // API call
+    // Create a URL-encoded string from the form data
+
+    // Prepare the request payload
+    const requestPayload = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      description: formData.description,
+      services: JSON.stringify(formData.services),
+    };
+
+    const urlEncodedData = Object.keys(requestPayload)
+      .map(
+        (key) =>
+          encodeURIComponent(key) +
+          "=" +
+          encodeURIComponent(requestPayload[key])
+      )
+      .join("&");
+
+    console.log(urlEncodedData);
+    // Send the form data to the API
+    fetch("http://formz.in/api/task", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: urlEncodedData,
+    })
+      .then((response) => {
+        console.log(response.status);
+        if (response.status === 201) {
+          console.log("Form submitted successfully");
+        } else if (response.status === 400) {
+          console.log("Error submitting the form");
+        }
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+        // Handle any network or fetch API errors
+      });
+
     console.log(formData);
   };
 
