@@ -57,7 +57,7 @@ const Navbar = () => {
           <div className="hidden sm:block">
             <div className="flex space-x-2 py-2 mt-1">
               <a
-                href="/"
+                href="/IEEE-Gems/"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >
                 Home
@@ -76,13 +76,13 @@ const Navbar = () => {
                 {isProductsOpen && (
                   <div className="absolute z-10 bg-gray-900 text-white py-2 rounded-md shadow-lg">
                     <a
-                      href="/"
+                      href="/IEEE-Gems/"
                       className="block px-4 py-2 text-sm"
                     >
                       Product 1
                     </a>
                     <a
-                      href="/"
+                      href="/IEEE-Gems/"
                       className="block px-4 py-2 text-sm"
                     >
                       Product 2
@@ -104,13 +104,13 @@ const Navbar = () => {
                 {isResourcesOpen && (
                   <div className="absolute z-10 bg-gray-900 text-white py-2 rounded-md shadow-lg">
                     <a
-                      href="/"
+                      href="/IEEE-Gems/"
                       className="block px-4 py-2 text-sm"
                     >
                       Resource 1
                     </a>
                     <a
-                      href="/"
+                      href="/IEEE-Gems/"
                       className="block px-4 py-2 text-sm"
                     >
                       Resource 2
@@ -119,7 +119,7 @@ const Navbar = () => {
                 )}
               </div>
               <a
-                href="/"
+                href="/IEEE-Gems/"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >
                 Pricing
@@ -133,7 +133,7 @@ const Navbar = () => {
           <div className="sm:hidden bg-gray-900">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <a
-                href="/"
+                href="/IEEE-Gems/"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Home
@@ -152,13 +152,13 @@ const Navbar = () => {
                 {isProductsOpen && (
                   <div className="absolute z-10 bg-gray-900 text-white py-2 mt-1 ml-3 rounded-md shadow-lg">
                     <a
-                      href="/"
+                      href="/IEEE-Gems/"
                       className="block px-4 py-2 text-base"
                     >
                       Product 1
                     </a>
                     <a
-                      href="/"
+                      href="/IEEE-Gems/"
                       className="block px-4 py-2 text-base"
                     >
                       Product 2
@@ -180,13 +180,13 @@ const Navbar = () => {
                 {isResourcesOpen && (
                   <div className="absolute z-10 bg-gray-900 text-white py-2 mt-1 ml-3 rounded-md shadow-lg">
                     <a
-                      href="/"
+                      href="/IEEE-Gems/"
                       className="block px-4 py-2 text-base"
                     >
                       Resource 1
                     </a>
                     <a
-                      href="/"
+                      href="/IEEE-Gems/"
                       className="block px-4 py-2 text-base"
                     >
                       Resource 2
@@ -195,7 +195,7 @@ const Navbar = () => {
                 )}
               </div>
               <a
-                href="/"
+                href="/IEEE-Gems/"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >
                 Pricing
